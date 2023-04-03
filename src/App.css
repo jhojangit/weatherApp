@@ -9,11 +9,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 1rem;
 }
 
 form{
     display: flex;
     gap: 1rem;
+    max-width: 300px;
 }
 
 form input{
@@ -55,8 +57,9 @@ form button:hover{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     width: 70%;
+    height: 90%;
     border-radius: .7rem;
 }
 
@@ -116,19 +119,22 @@ section{
 
 
 @media (min-width: 450px) {
-    
+    .card{
+        height: auto;
+    }
     .card ul{
         grid-template-columns: repeat(2, 1fr);
-
     }
 
 }
 
 @media (min-width: 800px) {
+    .card{
+        height: auto;
+    }
     
     .card ul{
         grid-template-columns: repeat(3, 1fr);
-
     }
 
 }
