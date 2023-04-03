@@ -10,6 +10,7 @@ function App() {
   const [latLon, setLatLon] = useState();
   const [weather, setWeather] = useState();
   const [city, setCity] = useState();
+  const [errorNameCity, setErrorNameCity] = useState(false);
 
 
   useEffect( () => {
@@ -32,7 +33,7 @@ function App() {
   useEffect( () => {
     
     if(latLon){
-
+      setErrorNameCity(false)
       if(!city){
           const apiKey = '04667eb34c29a45e2b143cb93221e6c8'
           const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latLon.lat}&lon=${latLon.lon}&appid=${apiKey}`
@@ -44,7 +45,7 @@ function App() {
           const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
           axios.get(URL)
           .then(res => setWeather(res.data))
-          .catch(err => console.log(err));
+          .catch(err => setErrorNameCity(true));
       }
     }
   }, [city, latLon])
@@ -52,7 +53,9 @@ function App() {
 
   const searchCity = (e) =>{
       e.preventDefault()
-      setCity(e.target.id.value)
+      const textValue = e.target.id.value
+      textValue === '' ? setErrorNameCity(true):
+      setCity(textValue)
       e.target.id.value = ''
   }
   
@@ -61,9 +64,13 @@ function App() {
     <div className="App">
 
         <form onSubmit={searchCity} action="">
-          <input type="text" name="" id="id" />
-          <button type="submit">submit</button>
+          <input type="text" name="" id="id" required placeholder='Search' />
+          <button type="submit">Search</button>
         </form>
+
+        {
+          errorNameCity && <h1>Country not found</h1>
+        }
         
         {
           !weather
