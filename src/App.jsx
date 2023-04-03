@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import WheterCard from './components/WheterCard';
-import ErrorPermission from './components/ErrorPermission';
+import Loading from './components/Loading';
 
 function App() {
 
 
   const [latLon, setLatLon] = useState();
   const [weather, setWeather] = useState();
-  const [hasError, setHasError] = useState(false);
 
 
   useEffect( () => {
@@ -22,7 +21,7 @@ function App() {
     }
 
     const error = err => {
-      setHasError(true)
+      console.log(err);
     }
 
     navigator.geolocation.getCurrentPosition(succes, error)
@@ -42,11 +41,12 @@ function App() {
 
   return (
     <div className="App">
-      {hasError == true
-      ? <ErrorPermission/>
-      :<WheterCard weather ={weather}/>
-      } 
-      </div>
+        {
+          !weather
+          ? <Loading/>
+          : <WheterCard weather ={weather}/>
+        }
+    </div>
   )
 }
 
