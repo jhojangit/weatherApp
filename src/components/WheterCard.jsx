@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const WheterCard = ({ weather }) => {
 
     const clouds = weather?.clouds.all
     const name = weather?.name
     const minName = weather?.sys.country
-    const tempFar = `${Math.floor(weather?.main.temp)}° F`
-    const tempCel = `${Math.floor(weather?.main.temp - 273)}° C`
+    let tempFar = `${Math.floor(weather?.main.temp)}° F`
+    let tempCel = `${Math.floor(weather?.main.temp - 273)}° C`
     const description = weather?.weather[0].description
     const main = weather?.weather[0].main
     const wind = weather?.wind.speed
@@ -17,9 +17,19 @@ const WheterCard = ({ weather }) => {
     const temp_min = weather?.main.temp_min
 
 
-    const [btnChange, setBtnChange] = useState();
-    const buttonChange = () => btnChange === tempCel ? setBtnChange(tempFar) : setBtnChange(tempCel)
 
+
+    const [btnChange, setBtnChange] = useState();
+
+    
+    useEffect(() => {
+        setBtnChange(setBtnChange(tempCel)||setBtnChange(tempFar))
+    }, [weather])
+
+    
+    const buttonChange = ()=> {
+            btnChange === tempFar ?setBtnChange(tempCel):setBtnChange(tempFar)
+    } 
 
     return (
         <article className="card">
@@ -40,7 +50,7 @@ const WheterCard = ({ weather }) => {
                 <div className="temp">
                     {btnChange
                         ?<h2>{btnChange}</h2>
-                        :<h2>{tempFar}</h2>
+                        :<h2>{tempCel}</h2>
                     } 
                     <button onClick={buttonChange}>Change F°/ C°</button>
                 </div>

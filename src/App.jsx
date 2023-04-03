@@ -7,9 +7,9 @@ import Loading from './components/Loading';
 function App() {
 
 
-
   const [latLon, setLatLon] = useState();
   const [weather, setWeather] = useState();
+  const [city, setCity] = useState();
 
 
   useEffect( () => {
@@ -32,22 +32,46 @@ function App() {
   useEffect( () => {
     
     if(latLon){
-      const apiKey = '04667eb34c29a45e2b143cb93221e6c8'
-      const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latLon.lat}&lon=${latLon.lon}&appid=${apiKey}`
-      axios.get(URL)
-      .then(res => setWeather(res.data))
-      .catch(err => console.log(err));
+
+      if(!city){
+          const apiKey = '04667eb34c29a45e2b143cb93221e6c8'
+          const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latLon.lat}&lon=${latLon.lon}&appid=${apiKey}`
+          axios.get(URL)
+          .then(res => setWeather(res.data))
+          .catch(err => console.log(err));
+      }else{
+          const apiKey = '04667eb34c29a45e2b143cb93221e6c8'
+          const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+          axios.get(URL)
+          .then(res => setWeather(res.data))
+          .catch(err => console.log(err));
+      }
     }
-    
-  }, [latLon])
+  }, [city, latLon])
+
+
+  const searchCity = (e) =>{
+      e.preventDefault()
+      setCity(e.target.id.value)
+      e.target.id.value = ''
+  }
+  
 
   return (
     <div className="App">
+
+        <form onSubmit={searchCity} action="">
+          <input type="text" name="" id="id" />
+          <button type="submit">submit</button>
+        </form>
+        
         {
           !weather
           ? <Loading/>
           : <WheterCard weather ={weather}/>
         }
+
+        
     </div>
   )
 }
