@@ -65,6 +65,7 @@ form button:hover{
     width: 70%;
     height: 90%;
     border-radius: .7rem;
+    overflow: hidden;
 }
 
 .card header{
