@@ -9,6 +9,7 @@ const WheterCard = ({ weather }) => {
     let tempCel = `${Math.floor(weather?.main.temp - 273)}° C`
     const description = weather?.weather[0].description
     const main = weather?.weather[0].main
+    const icon = weather?.weather[0].icon
     const wind = weather?.wind.speed
     const feels_like = Math.floor(weather?.main.feels_like - 273)
     const humidity = weather?.main.humidity
@@ -18,6 +19,7 @@ const WheterCard = ({ weather }) => {
 
 
 
+    console.log(weather);
 
     const [btnChange, setBtnChange] = useState();
 
@@ -37,7 +39,7 @@ const WheterCard = ({ weather }) => {
             <h2>{name}, {minName}</h2>
 
             <header>
-                🌤️
+                <img src= {`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="" />
                 <p>Clouds: <b>{clouds}%</b></p>
             </header>
 

@@ -6,7 +6,6 @@ import Loading from './components/Loading';
 
 function App() {
 
-
   const [latLon, setLatLon] = useState();
   const [weather, setWeather] = useState();
   const [city, setCity] = useState();
@@ -63,10 +62,14 @@ function App() {
   return (
     <div className="App">
 
-        <form onSubmit={searchCity} action="">
-          <input type="text" name="" id="id" required placeholder='Search' />
-          <button type="submit">Search</button>
-        </form>
+        {
+        weather &&
+            <form onSubmit={searchCity} action="">
+              <input type="text" name="" id="id" required placeholder='Search' />
+              <button type="submit">Search</button>
+            </form>
+        }
+
 
         {
           errorNameCity && <h1>Country not found</h1>
@@ -74,11 +77,9 @@ function App() {
         
         {
           !weather
-          ? <Loading/>
+          ? <Loading /> 
           : <WheterCard weather ={weather}/>
         }
-
-        
     </div>
   )
 }
