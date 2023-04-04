@@ -1,3 +1,8 @@
+:root{
+    --transparent: rgba(240, 248, 255, 0.845);
+    --hover:hsl(0, 0%, 100%);
+}
+
 .App{
     height: 100vh;
     background-size: cover;
@@ -19,7 +24,7 @@ form{
 }
 
 form input{
-    background-color: rgba(240, 248, 255, 0.559);
+    background-color: var(--transparent);
     padding: .4rem;
     border-radius: .5rem;
     text-align:center;
@@ -31,13 +36,13 @@ form input{
 }
 
 form input:hover{
-    background-color: rgb(240, 248, 255);
+    background-color: var(--hover);
     border: 1px  transparent;
 }
 
 form button{
     text-align: center;
-    background-color: rgba(240, 248, 255, 0.559);
+    background-color: var(--transparent);
     font-size: medium;
     font-weight: 400;
     
@@ -48,12 +53,12 @@ form button{
 }
 
 form button:hover{
-    background-color: rgb(240, 248, 255);
+    background-color: var(--hover) ;
 }
 
 
 .card{
-    background-color: rgba(240, 248, 255, 0.559);
+    background-color: var(--transparent);
     padding: 1rem;
     margin: 1rem;
     display: flex;
@@ -84,6 +89,8 @@ form button:hover{
 }
 
 .temp button{
+    background-color: rgb(59, 59, 59);
+    color: aliceblue;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     padding: .3rem;
@@ -95,10 +102,11 @@ form button:hover{
 
 .temp button:hover{
     background-color: rgb(255, 255, 255);
-    color: rgb(108, 108, 108);
+    color: rgb(45, 45, 45);
 }
 
 section{
+    
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -107,7 +115,7 @@ section{
 }
 
 .list{
-    background-color: rgba(240, 248, 255, 0.161);
+    background-color: rgba(240, 248, 255, 0.59);
     border-radius: 1rem;
     width: 100%;
     padding: 1rem;
@@ -120,6 +128,19 @@ section{
     text-align: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+}
+
+.container_error{
+    background-color: var(--transparent);
+    padding: .4rem;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    text-align:center;
+    font-size: medium;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    width: 300px;
 }
 
 

@@ -3,6 +3,7 @@ import axios from 'axios'
 import './App.css'
 import WheterCard from './components/WheterCard';
 import Loading from './components/Loading';
+import CountryError from './components/CountryError';
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
 
   return (
     <div className="App">
+      
 
         {
         weather &&
@@ -72,7 +74,7 @@ function App() {
 
 
         {
-          errorNameCity && <h1>Country not found</h1>
+          errorNameCity && <CountryError/>
         }
         
         {

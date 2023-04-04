@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const WheterCard = ({ weather }) => {
 
+
     const clouds = weather?.clouds.all
     const name = weather?.name
     const minName = weather?.sys.country
@@ -17,9 +18,19 @@ const WheterCard = ({ weather }) => {
     const temp_max = weather?.main.temp_max
     const temp_min = weather?.main.temp_min
 
-    
-    let a = document.querySelector('.App')
-    a.style.backgroundImage='url(/backGround/cloudy.jpg)';
+
+
+    const app = document.querySelector('.App')
+    if (icon === '01d' || icon === '01n') app.style.backgroundImage='url(/backGround/clear-sky.jpg)';
+    if (icon === '02d' || icon === '02n') app.style.backgroundImage='url(/backGround/few-clouds.jpg)';
+    if (icon === '03d' || icon === '03n') app.style.backgroundImage='url(/backGround/scattered-clouds.jpg)';
+    if (icon === '04d' || icon === '04n') app.style.backgroundImage='url(/backGround/broken-clouds.jpg)';
+    if (icon === '09d' || icon === '09n') app.style.backgroundImage='url(/backGround/shower-rain.jpg)';
+    if (icon === '10d' || icon === '10n') app.style.backgroundImage='url(/backGround/rain.jpg)';
+    if (icon === '11d' || icon === '11n') app.style.backgroundImage='url(/backGround/thunderstorm.jpg)';
+    if (icon === '13d' || icon === '13n') app.style.backgroundImage='url(/backGround/snow.jpg)';
+    if (icon === '50d' || icon === '50n') app.style.backgroundImage='url(/backGround/mist.jpg)';
+
 
     const [btnChange, setBtnChange] = useState();
     
