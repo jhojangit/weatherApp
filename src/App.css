@@ -157,6 +157,7 @@ section{
 @media (min-width: 450px) {
     .card{
         height: auto;
+        width: 80%;
     }
     .card ul{
         grid-template-columns: repeat(2, 1fr);
@@ -167,6 +168,7 @@ section{
 @media (min-width: 800px) {
     .card{
         height: auto;
+        width: 65%;
     }
     
     .card ul{
