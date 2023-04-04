@@ -52,6 +52,15 @@ form button{
     width: 50px;
 }
 
+.load{
+    background-image: url(/public/dog.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+
+
+}
+
 form button:hover{
     background-color: var(--hover) ;
 }

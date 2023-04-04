@@ -1,10 +1,16 @@
 
 import ReactLoading from 'react-loading';
 
+
 const Loading = ({ type, color }) => (
-    <ReactLoading type={'bars'} color={color} height={'30%'} width={'30%'} />
+    
+        <ReactLoading className='load' type={'spinningBubbles'} color={'black'} height={'30%'} width={'40%'} />
+    
 );
 
-export default Loading;
+
+
+export default Loading 
+
 
 

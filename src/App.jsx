@@ -79,7 +79,7 @@ function App() {
         
         {
           !weather
-          ? <Loading /> 
+          ? <Loading className="load"/> 
           : <WheterCard weather ={weather}/>
         }
     </div>
