@@ -19,7 +19,7 @@ const WheterCard = ({ weather }) => {
 
     
     let a = document.querySelector('.App')
-    a.style.backgroundImage='url(/backGround/rain.jpg)';
+    a.style.backgroundImage='url(/backGround/cloudy.jpg)';
 
     const [btnChange, setBtnChange] = useState();
     
