@@ -17,12 +17,11 @@ const WheterCard = ({ weather }) => {
     const temp_max = weather?.main.temp_max
     const temp_min = weather?.main.temp_min
 
-
-
-    console.log(weather);
+    
+    let a = document.querySelector('.App')
+    a.style.backgroundImage='url(/backGround/rain.jpg)';
 
     const [btnChange, setBtnChange] = useState();
-
     
     useEffect(() => {
         setBtnChange(setBtnChange(tempCel)||setBtnChange(tempFar))
