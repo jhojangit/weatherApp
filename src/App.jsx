@@ -68,7 +68,7 @@ function App() {
         weather &&
             <form onSubmit={searchCity} action="">
               <input type="text" name="" id="id" required placeholder='Search' />
-              <button type="submit">Search</button>
+              <button type="submit">🔎</button>
             </form>
         }
 
@@ -81,8 +81,9 @@ function App() {
           !weather
           ? <Loading className="load"/> 
           : <WheterCard weather ={weather}/>
-        }
-    </div>
+        }   
+        
+      </div>
   )
 }
 

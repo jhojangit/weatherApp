@@ -1,5 +1,5 @@
 :root{
-    --transparent: rgba(240, 248, 255, 0.845);
+    --transparent: rgba(200, 206, 211, 0.845);
     --hover:hsl(0, 0%, 100%);
 }
 
@@ -50,15 +50,6 @@ form button{
     border-radius: .4rem;
     border: none;
     width: 50px;
-}
-
-.load{
-    background-image: url(/public/dog.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-
-
-
 }
 
 form button:hover{
