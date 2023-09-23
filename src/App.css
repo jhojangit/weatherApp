@@ -3,6 +3,10 @@
     --hover:hsl(0, 0%, 100%);
 }
 
+
+
+
+
 .App{
     height: 100vh;
     background-size: cover;
@@ -55,6 +59,35 @@ form button{
 form button:hover{
     background-color: var(--hover) ;
 }
+
+.list__suggestion{
+    background-color: aliceblue;
+    max-height: 300px;
+    border-radius: 1rem;
+    padding: 1rem;
+    overflow: auto;
+    display: block;
+    min-width: 300px;
+    
+    position: fixed;
+    top: 28%;
+}
+
+.list__none{
+    display: none;
+}
+
+
+
+.list__suggestion li{
+    list-style: none;
+    line-height: 1.8rem;
+    border-top: 1px solid rgba(141, 136, 136, 0.616);
+    border-bottom: 1px solid rgba(141, 136, 136, 0);
+    cursor: pointer;
+}
+
+
 
 
 .card{
@@ -111,6 +144,13 @@ section{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+}
+.load{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../public/backGround/snow.jpg");
+    background-size: cover;
     
 }
 

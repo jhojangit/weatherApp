@@ -6,8 +6,8 @@ const WheterCard = ({ weather }) => {
     const clouds = weather?.clouds.all
     const name = weather?.name
     const minName = weather?.sys.country
-    let tempFar = `${Math.floor(weather?.main.temp)}° F`
-    let tempCel = `${Math.floor(weather?.main.temp - 273)}° C`
+    let tempFar = `${Math.floor(weather?.main.temp - 225)}° F`
+    let tempCel = `${Math.floor(weather?.main.temp - 273+1)}° C`
     const description = weather?.weather[0].description
     const main = weather?.weather[0].main
     const icon = weather?.weather[0].icon
