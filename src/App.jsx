@@ -62,7 +62,7 @@ function App() {
     textValue === '' ? setErrorNameCity(true) :
       setCity(textValue)
     e.target.id.value = ''
-
+    setWord("")
   }
 
   const handleWord = (e) => {
