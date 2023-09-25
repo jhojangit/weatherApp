@@ -72,14 +72,23 @@ function App() {
 
   useEffect(() => {
 
-    axios.get("https://restcountries.com/v3.1/all")
-      .then(res => setList(res.data))
+    axios.get("https://countriesnow.space/api/v0.1/countries")
+      .then(res => setList(res.data.data))
       .catch(err => console.error(err))
+
 
   }, [weather]);
 
 
-  let fullList = list.map(countryName => countryName?.name?.common)
+
+  let countries = list.map(country => country?.country)
+  let cities = list.map(city => city?.cities).flat()
+
+
+
+  let fullList = [...countries, cities].flat()
+
+  fullList = ([...new Set(fullList)])
 
   let suggestion = fullList.filter(country => country.toLowerCase().startsWith(word))
 
@@ -112,8 +121,8 @@ function App() {
           <ul>
             {
               word != "" ?
-              
- 
+
+
                 suggestion.map(city => (
 
                   <Filter
